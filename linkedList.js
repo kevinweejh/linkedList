@@ -110,4 +110,19 @@ export class LinkedList {
         }
         return false; 
     }
+
+    find = (value) => {
+        let index = 0;
+        let current = this.head;
+
+        // Traverse LinkedList while incrementing index
+        while (current !== null) {
+            
+            if (current.value === value) {
+                return index;
+            }
+            index++;
+        }
+        return null;
+    }
 }
