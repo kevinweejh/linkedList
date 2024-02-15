@@ -97,4 +97,17 @@ export class LinkedList {
         prev.next = null;
         return poppedValue;
     }
+
+    contains = (value) => {
+        let current = this.head; 
+
+        // Traverse LinkedList, and return conditional against value
+        while (current !== null) {
+            if (current.value === value) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false; 
+    }
 }
