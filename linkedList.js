@@ -69,4 +69,32 @@ export class LinkedList {
         }
         return current;
     }
+
+    pop = () => {
+        let prev = null;
+        let current = this.head;
+
+        // Empty LinkedList has nothing to pop
+        if (this.head === null) {
+            return null;
+        } 
+
+        // Reset LinkedList head if only one Node exists, return poppedValue
+        if (this.head.next === null) {
+            const poppedValue = this.head.value;
+            this.head = null;
+            return poppedValue;
+        }
+
+        // Traverse LinkedList to the tail, track current and prev Nodes
+        while (current.next !== null) {
+            prev = current;
+            current = current.next;
+        }
+        
+        // Set prev pointer to `null`, return poppedValue
+        const poppedValue = current.value;
+        prev.next = null;
+        return poppedValue;
+    }
 }
