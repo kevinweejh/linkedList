@@ -54,4 +54,19 @@ export class LinkedList {
         }
         return current;
     }
+
+    at = (index) => {
+        // Reject if index out of range
+        if (index < 0 || index >= this.size()) {
+            return Error('index out of range');
+        }
+
+        let current = this.head;
+
+        // Traverse LinkedList to the `index` Node, and return it
+        for (let i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
+    }
 }
