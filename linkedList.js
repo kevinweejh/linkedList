@@ -19,4 +19,13 @@ export class LinkedList {
         }
         current.next = new Node(value);
     }
+
+    prepend = (value) => {
+        // Assign new Node's pointer to the current LinkedList head
+        const newNode = new Node(value);
+        newNode.next = this.head;
+
+        // Reassign the LinkedList head to point to the new Node
+        this.head = newNode;
+    }
 }
