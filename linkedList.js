@@ -125,4 +125,18 @@ export class LinkedList {
         }
         return null;
     }
+
+    toString = () => {
+        let current = this.head;
+        let preview = "";
+
+        // Traverse LinkedList, appending all values to preview
+        while (current !== null) {
+            preview = preview.concat(`( ${current.value} ) -> `);
+            current = current.next;
+        }
+        preview = preview.concat('null');
+        
+        return preview;
+    }
 }
