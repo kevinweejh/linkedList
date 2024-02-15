@@ -40,4 +40,18 @@ export class LinkedList {
         }
         return length;
     }
+
+    head = () => {
+        return this.head;
+    }
+
+    tail = () => {
+        let current = this.head;
+
+        // Traverse LinkedList to the tail, and return it
+        while (current.next !== null) {
+            current = current.next;
+        }
+        return current;
+    }
 }
