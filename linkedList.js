@@ -28,4 +28,16 @@ export class LinkedList {
         // Reassign the LinkedList head to point to the new Node
         this.head = newNode;
     }
+
+    size = () => {
+        let length = 0;
+        let current = this.head;
+
+        // Traverse LinkedList, increment length variable with each Node
+        while (current !== null) {
+            length++;
+            current = current.next;
+        }
+        return length;
+    }
 }
