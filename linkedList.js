@@ -12,7 +12,7 @@ export class LinkedList {
             return;
         } 
 
-        // Traverse LinkedList if not empty, set LinekdList tail to point to new Node
+        // Traverse LinkedList if not empty, set LinkedList tail to point to new Node
         let current = this.head;
         while (current.next !== null) {
             current = current.next;
