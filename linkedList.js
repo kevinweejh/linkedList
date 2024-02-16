@@ -174,4 +174,31 @@ export class LinkedList {
         // Set `prev` Node's pointer to new Node
         prev.next = newNode;
     }
+
+    removeAt = (index) => {
+        // Reject if index out of range
+        if (index < 0 || index >= this.size()) {
+            return Error('index out of range');
+        }
+
+        // Removing the head
+        if (index === 0) {
+            const removedValue = this.head.value;
+            this.head = this.head.next;
+            return removedValue;
+        }
+
+        let prev = null;
+        let current = this.head;
+        
+        // Traverse LinkedList to given index
+        for (let i = 0; i < index; i++) {
+            prev = current;
+            current = current.next;
+        }
+
+        // Set `prev` Node's pointer to the `next` of current, return removed value
+        prev.next = current.next;
+        return current.value;
+    } 
 }
