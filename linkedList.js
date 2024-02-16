@@ -139,4 +139,39 @@ export class LinkedList {
         
         return preview;
     }
+
+    insertAt = (value, index) => {
+        // Reject if index out of range
+        if (index < 0 || index >= this.size()) {
+            return Error('index out of range');
+        }
+
+        // Prepend to head if insertAt called for index 0
+        if (index === 0) {
+            this.prepend(value);
+            return;
+        }
+
+        // Append to tail if insertAt called for index `size`
+        if (index === this.size()) {
+            this.append(value);
+            return;
+        }
+
+        let newNode = new Node(value);
+        let prev = null;
+        let current = this.head;
+
+        // Traverse LinkedList to given index
+        for (let i = 0; i < index; i++) {
+            prev = current;
+            current = current.next;
+        }
+
+        // Set new Node's pointer to current `index` Node
+        newNode.next = current;
+
+        // Set `prev` Node's pointer to new Node
+        prev.next = newNode;
+    }
 }
